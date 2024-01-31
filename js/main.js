@@ -2,6 +2,7 @@
 let tasksBox = document.querySelector('.tasks');
 let taskInput = document.querySelector('#taskInput');
 let addBtn = document.querySelector('.task-btn');
+let resetBtn = document.querySelector('.resetBtn');
 let tasks = [];
 if(localStorage.getItem('tasks')){
     tasks = JSON.parse(localStorage.getItem('tasks'));
@@ -17,6 +18,11 @@ class Task {
         this.id = i;
     }
 };
+resetBtn.onclick=()=>{
+    tasks = [];
+    addToStorage(tasks);
+    displayTasks(tasks);
+}
 for(let i = 0 ; i < anchor.length ; i++){
     anchor[0].addEventListener('click' , (e)=>{
         e.preventDefault();
